@@ -3,6 +3,7 @@ import Home from './Home';
 import {BrowserRouter,Routes,Route,Navigate} from 'react-router-dom';
 import Login from './Login';
 import {AuthProvider, useAuth} from './utills/AuthContext';
+import MainPage from './components/MainPage';
 
 function App() {
   const PrivateRoute=({children}) => {
@@ -14,6 +15,7 @@ function App() {
     <AuthProvider>
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<MainPage />} />
         <Route path="/auth/login" element={<Login />} />
         <Route path="/home" element={<PrivateRoute><Home /></PrivateRoute>} />
       </Routes>
